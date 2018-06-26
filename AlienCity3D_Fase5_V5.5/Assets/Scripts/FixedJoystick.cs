@@ -18,6 +18,7 @@ public class FixedJoystick : Joystick
         Vector2 direction = eventData.position - joystickPosition;
         inputVector = (direction.magnitude > background.sizeDelta.x / 2f) ? direction.normalized : direction / (background.sizeDelta.x / 2f);
         handle.anchoredPosition = (inputVector * background.sizeDelta.x / 2f) * handleLimit;
+
     }
 
     public override void OnPointerDown(PointerEventData eventData)
