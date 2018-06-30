@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour {
 				anim.SetTrigger("Pula");
 				jump = true;
 			}
-			else
+	else
 			{
 				anim.SetTrigger("Corre");
 			}

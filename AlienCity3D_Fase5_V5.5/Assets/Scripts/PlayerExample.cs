@@ -9,5 +9,7 @@ public class PlayerExample : MonoBehaviour {
 	{
         Vector3 moveVector = (transform.right * joystick.Horizontal + transform.forward * joystick.Vertical).normalized;
         transform.Translate(moveVector * moveSpeed * Time.deltaTime);
+
+	
 	}
 }
