@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class FixedJoystick : Joystick
@@ -31,4 +31,4 @@ public class FixedJoystick : Joystick
         inputVector = Vector2.zero;
         handle.anchoredPosition = Vector2.zero;
     }
-}
+}*/

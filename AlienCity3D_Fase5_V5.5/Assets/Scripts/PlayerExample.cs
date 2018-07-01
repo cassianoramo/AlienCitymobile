@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 
 public class PlayerExample : MonoBehaviour {
 
@@ -7,9 +7,9 @@ public class PlayerExample : MonoBehaviour {
 
 	void Update () 
 	{
-        Vector3 moveVector = (transform.right * joystick.Horizontal + transform.forward * joystick.Vertical).normalized;
-        transform.Translate(moveVector * moveSpeed * Time.deltaTime);
+   //Vector3 moveVector = (transform.right * joystick.Horizontal + transform.forward * joystick.Vertical).normalized;
+        //ransform.Translate(moveVector * moveSpeed * Time.deltaTime);
 
 	
 	}
-}
+}*/

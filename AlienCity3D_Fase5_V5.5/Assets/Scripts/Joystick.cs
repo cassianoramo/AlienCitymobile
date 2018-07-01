@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class Joystick : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
@@ -29,4 +29,4 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointer
     {
 
     }
-}
+}*/

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.CrossPlatformInput;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour {
@@ -11,9 +12,8 @@ public class PlayerController : MonoBehaviour {
 	protected Vector3 gravidade = Vector3.zero;
 	protected Vector3 move = Vector3.zero;
 	private bool jump = false;
+	private float h;
 
-
-	
 	void Start()
 	{
 		cc = GetComponent<CharacterController> ();
@@ -23,9 +23,10 @@ public class PlayerController : MonoBehaviour {
 
 	void Update()
 	{
-		Vector3 move = Input.GetAxis ("Vertical") * transform.TransformDirection (Vector3.forward) * MoveSpeed;
+		Move ();
+		/*Vector3 move = Input.GetAxis ("Vertical") * transform.TransformDirection (Vector3.forward) * MoveSpeed;
 		transform.Rotate (new Vector3 (0, Input.GetAxis ("Horizontal") * RotationSpeed * Time.deltaTime, 0));
-		
+		*/
 		if (!cc.isGrounded) {
 			gravidade += Physics.gravity * Time.deltaTime;
 		} 
@@ -38,9 +39,10 @@ public class PlayerController : MonoBehaviour {
 				jump = false;
 			}
 		}
-		move += gravidade;
-		cc.Move (move* Time.deltaTime);
+		//move += gravidade;
+		//cc.Move (move* Time.deltaTime);
 		Anima ();
+	
 	}
 	 
 	void Anima()
@@ -62,4 +64,18 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 	}
+	void Move(){
+		h = CrossPlatformInputManager.GetAxis ("Horizontall");
+		if(Input.GetKey("right") || Input.GetKey("left") || h > 0){
+			transform.Rotate (new Vector3 (0, Input.GetAxis ("Horizontal") * RotationSpeed * Time.deltaTime, 0));
+		}
+		if (h > 0 || h < 0) {
+			transform.Rotate (new Vector3 (0, h * RotationSpeed * Time.deltaTime, 0));
+		}
+		Vector3 move = Input.GetAxis ("Vertical") * transform.TransformDirection (Vector3.forward) * MoveSpeed;
+		move += gravidade;
+		cc.Move (move* Time.deltaTime);
+	}
 }
+
+
