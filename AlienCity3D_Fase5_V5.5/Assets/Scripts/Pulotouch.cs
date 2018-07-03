@@ -7,6 +7,7 @@ public class Pulotouch : MonoBehaviour {
 	public float pulo;
 	public Rigidbody playerr;
 	private bool clique, penochao;
+
 	void FixedUpdate () {
 		RaycastHit dpulo;
 		if (Physics.Raycast (transform.position, -transform.up, out dpulo, pulo)) {
@@ -25,7 +26,7 @@ public class Pulotouch : MonoBehaviour {
 			}
 		}
 	}
-	public void Pular(bool cliquei){
+	public void Button (bool cliquei){
 		clique = cliquei;
 	}
 }

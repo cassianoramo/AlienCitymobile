@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour {
 	private bool jump = false;
 	private float h;
 	private float v;
+	public Rigidbody player;
 
 	void Start()
 	{
@@ -25,24 +26,12 @@ public class PlayerController : MonoBehaviour {
 	void Update()
 	{
 		Move ();
-		//Vector3 move = Input.GetAxis ("Vertical") * transform.TransformDirection (Vector3.forward) * MoveSpeed;
-		//transform.Rotate (new Vector3 (0, Input.GetAxis ("Horizontal") * RotationSpeed * Time.deltaTime, 0));
-		if (!cc.isGrounded) {
-			gravidade += Physics.gravity * Time.deltaTime;
-		} 
-		else 
-		{
-			gravidade = Vector3.zero;
-			if(jump)
-			{
-				gravidade.y = 6f;
-				jump = false;
-			}
-		}
-		//move += gravidade;
-		//cc.Move (move* Time.deltaTime);
 		Anima ();
-	
+		if (!cc.isGrounded ) {
+			gravidade += Physics.gravity * Time.deltaTime;
+		} else {
+			gravidade = Vector3.zero;
+		}
 	}
 	 
 	void Anima()
@@ -63,6 +52,9 @@ public class PlayerController : MonoBehaviour {
 				anim.SetTrigger("Corre");
 			}
 		}
+		if (jump) {
+			Jump ();
+		} 
 	}
 	void Move(){
 		h = CrossPlatformInputManager.GetAxis ("Horizontall");
@@ -85,6 +77,11 @@ public class PlayerController : MonoBehaviour {
 		}
 		move1 += gravidade;
 		cc.Move (move1 * Time.deltaTime);
+	}
+	void Jump (){
+		Debug.Log ("c");
+		player.AddForce (Vector3.up *2000 * Time.deltaTime);
+		jump = false;
 	}
 }
 
