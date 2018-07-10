@@ -10,6 +10,8 @@ public class Colisor : MonoBehaviour {
 		if  (other.gameObject.CompareTag ( "Obstaculo")) {
 			string currentScene = SceneManager.GetActiveScene ().name;
 			SceneManager.LoadScene (currentScene);
+			Handheld.Vibrate ();
+			Debug.Log ("Vibra");
 		}
 	}
 }
